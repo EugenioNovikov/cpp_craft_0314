@@ -1,11 +1,3 @@
-//
-//  main.cpp
-//  Lab1_2
-//
-//  Created by Eugenio on 16.03.14.
-//  Copyright (c) 2014 Eugenio. All rights reserved.
-//
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -16,26 +8,18 @@
 
 using namespace std;
 
-//#define PROJECT_PATH "/Users/newmango/Documents/C++Craft/Solutions/1/Lab1_2/"
-//
-//
-//const string kInpuFilePath                  = PROJECT_PATH "input.txt";
-//const string kOutpuFilePath                 = PROJECT_PATH "output.txt";
-
 const size_t kCodeCountMax                  = 1000000;
-const float kAccuracy                       = 1e-4;
-
-
+const double kAccuracy                      = 1e-4;
 
 
 int main(int argc, const char * argv[])
 {
     ifstream inputFile(BINARY_DIR "/input.txt");
     ofstream outputFile(BINARY_DIR "/output.txt");
-
+    
     if (inputFile.is_open())
     {
-        set<float> codeSet;
+        set<double> codeSet;
         
         int codeCount = 0;
         inputFile >> codeCount;
@@ -50,8 +34,8 @@ int main(int argc, const char * argv[])
             }
             
             size_t currentLine = 0;
-            float codeValue = 0;
-            float passwordValue = 0;
+            double codeValue = 0;
+            double passwordValue = 0;
             
             while (!inputFile.eof() && currentLine < codeCount)
             {
@@ -71,7 +55,7 @@ int main(int argc, const char * argv[])
             {
                 inputFile >> passwordValue;
                 
-                for (std::set<float>::iterator codeIterator = codeSet.begin(); codeIterator != codeSet.end(); codeIterator++)
+                for (std::set<double>::iterator codeIterator = codeSet.begin(); codeIterator != codeSet.end(); codeIterator++)
                 {
                     if (fabsf((*codeIterator) - passwordValue) < kAccuracy)
                     {

@@ -1,11 +1,3 @@
-//
-//  main.cpp
-//  Lab1_1
-//
-//  Created by Eugenio on 16.03.14.
-//  Copyright (c) 2014 Eugenio. All rights reserved.
-//
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -13,34 +5,33 @@
 
 using namespace std;
 
-//#define PROJECT_PATH "/Users/newmango/Documents/C++Craft/Solutions/1/Lab1_1/"
-
-
 const size_t kStringSizeMax                 = 100000;
 const size_t kExceptCharCount               = 3;
 const char kExceptChars[kExceptCharCount]   = {' ', '-', '\\'};
-//const string kInpuFilePath                  = PROJECT_PATH "input.txt";
-//const string kOutpuFilePath                 = PROJECT_PATH "output.txt";
 
 
-void convertStringWithReverse(string &_str, bool _reverse)
+bool isExceptChar(const char _lettre)
+{
+    for (size_t j = 0; j < kExceptCharCount; j++)
+    {
+        if (_lettre == kExceptChars[j])
+        {
+            return true;
+        }
+    }
+    
+    return false;
+}
+
+
+void convertStringWithReverse(string &_str, const bool _reverse)
 {
     if (_str.size() > kStringSizeMax)
     {
         _str.resize(kStringSizeMax);
     }
     
-    for (size_t j = 0; j < kExceptCharCount; j++)
-    {
-        long iterator = _str.find(kExceptChars[j]);
-        
-        while (iterator < _str.length())
-        {
-            _str.erase(iterator, 1);
-            
-            iterator = _str.find(kExceptChars[j]);
-        }
-    }
+    _str.erase(remove_if(_str.begin(), _str.end(), isExceptChar), _str.end());
     
     transform(_str.begin(), _str.end(), _str.begin(), ::tolower);
     

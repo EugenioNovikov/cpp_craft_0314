@@ -1,11 +1,3 @@
-//
-//  main.cpp
-//  Lab1_3
-//
-//  Created by Eugenio on 16.03.14.
-//  Copyright (c) 2014 Eugenio. All rights reserved.
-//
-
 #include <iostream>
 #include <fstream>
 #include <string>
@@ -18,26 +10,13 @@
 using namespace std;
 
 
-
-//#define PROJECT_PATH "/Users/newmango/Documents/C++Craft/Solutions/1/Lab1_3/"
-//
-//
-//const string kInpuFilePath                  = PROJECT_PATH "input.txt";
-//const string kOutpuFilePath                 = PROJECT_PATH "output.txt";
-
 const char kLandSymbol                      = 'o';
 const char kWaterSymbol                     = '~';
 
 static size_t columnCount = 0;
 static size_t rowCount = 0;
 
-void findTotalLand(vector<string> &_layerVector, size_t _rowNumber, size_t _columnNumber);
-
-//~~o~~o~~o~~~o
-//~oo~oooooo~~o
-//~~~o~ooo~~~~o
-//~~~~oo~~~~~~~
-//~ooo~~~~~~~~o
+void findTotalLand(vector<string> &_layerVector, const size_t _rowNumber, const size_t _columnNumber);
 
 int main(int argc, const char * argv[])
 {
@@ -93,7 +72,7 @@ void findTotalLand(vector<string> &_layerVector, size_t _rowNumber, size_t _colu
         {
             findTotalLand(_layerVector, _rowNumber - 1, _columnNumber);
         }
-        if (_rowNumber < rowCount - 2)
+        if (_rowNumber <= rowCount - 2)
         {
             findTotalLand(_layerVector, _rowNumber + 1, _columnNumber);
         }
@@ -101,7 +80,7 @@ void findTotalLand(vector<string> &_layerVector, size_t _rowNumber, size_t _colu
         {
             findTotalLand(_layerVector, _rowNumber, _columnNumber - 1);
         }
-        if (_columnNumber < columnCount - 2)
+        if (_columnNumber <= columnCount - 2)
         {
             findTotalLand(_layerVector, _rowNumber, _columnNumber + 1);
         }
