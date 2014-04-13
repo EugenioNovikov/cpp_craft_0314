@@ -1,6 +1,8 @@
 
 export SOLUTION_NAME=puzzle_2_solution
-export BOOST_ROOT=~/usr/boost_1_47_0
+export BOOST_ROOT=/opt/local
+export BINARY_READER_ROOT=~/Documents/C++Craft/Repository/cpp_craft_0314/solutions/eugenio_novikov/2
+
 
 export BUILD_TYPE=Debug
 if [ "$1" == 'Release' ];
@@ -16,7 +18,7 @@ then
 fi
 
 cd $BUILD_FOLDER
-cmake -DVERBOSE=ON -DBOOST_STAGE_FOLDER_WITH_ADDRESS_MODEL=ON -DSOLUTION_NAME=$SOLUTION_NAME -DCMAKE_BUILD_TYPE=$BUILD_TYPE -G "Xcode" ../
+cmake -DVERBOSE=ON -DBOOST_STAGE_FOLDER_WITH_ADDRESS_MODEL=ON -DSOLUTION_NAME=$SOLUTION_NAME -DCMAKE_BUILD_TYPE=$BUILD_TYPE -G Xcode ../
 
 cd ../
 

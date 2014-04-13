@@ -18,11 +18,11 @@ namespace binary_reader
 		in.read( reinterpret_cast< char* >( &t ), len );
 	}
 	template< class T >
-	void write_binary( std::ofstream& out, T& t, const size_t len = sizeof( T ) )
+	void write_binary( std::ofstream& out, const T& t, const size_t len = sizeof( T ) )
 	{
 		out.write( reinterpret_cast< const char* >( &t ), len );
 	}
-	//
+	
 	class stock_data : virtual protected boost::noncopyable
 	{
 		friend void tests_::test_stock_data();

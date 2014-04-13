@@ -1,0 +1,5 @@
+find_package( binary_reader ${SEARCH_PARAMETERS} COMPONENTS
+	binary_reader
+)
+
+compile_project( ${module_name} "*.cpp" "*.h" BINARY binaries binary_reader )

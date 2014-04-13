@@ -12,7 +12,10 @@ binary_reader::stock_data::stock_data( std::ifstream& in )
 	read_binary( in, f2_ );
 	read_binary( in, f3_ );
 	read_binary( in, f4_ );
+
 }
+
+
 binary_reader::stock_data::stock_data( const char* stock_name,
 							const char* date_time,
 							const double price,
@@ -35,9 +38,13 @@ binary_reader::stock_data::stock_data( const char* stock_name,
 	memcpy( stock_name_, stock_name, sizeof( stock_name_ ) );
 	memcpy( date_time_, date_time, sizeof( date_time_ ) );
 }
+
+
 binary_reader::stock_data::~stock_data()
 {
 }
+
+
 void binary_reader::stock_data::write( std::ofstream& out )
 {
 	boost::uint32_t date = 0;
@@ -53,8 +60,10 @@ void binary_reader::stock_data::write( std::ofstream& out )
 	write_binary( out, date );
 	write_binary( out, vwap_ );
 	write_binary( out, volume_ );
-	write_binary( out, f2_ );	
+	write_binary( out, f2_ );
 }
+
+
 void binary_reader::stock_data::write_raw( std::ofstream& out )
 {	
 	write_binary( out, stock_name_ );

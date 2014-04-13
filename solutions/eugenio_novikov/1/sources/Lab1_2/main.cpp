@@ -57,7 +57,7 @@ int main(int argc, const char * argv[])
                 
                 for (std::set<double>::iterator codeIterator = codeSet.begin(); codeIterator != codeSet.end(); codeIterator++)
                 {
-                    if (fabsf((*codeIterator) - passwordValue) < kAccuracy)
+                    if (fabs((*codeIterator) - passwordValue) < kAccuracy)
                     {
                         isEqualCodeAndPassword = true;
                         

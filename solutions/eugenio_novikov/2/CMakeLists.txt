@@ -4,7 +4,6 @@ set( CMAKE_CONFIGURATION_TYPES ${CMAKE_BUILD_TYPE} CACHE STRING "Configurations"
 project( ${SOLUTION_NAME} )
 include( environment.cmake required )
 
-modules( binary_reader )
-binaries( Lab2_4 Lab2_5 )
+binaries( binary_reader Lab2_4 Lab2_5 Lab2_6 )
 
 compile()

@@ -72,7 +72,7 @@ void findTotalLand(vector<string> &_layerVector, size_t _rowNumber, size_t _colu
         {
             findTotalLand(_layerVector, _rowNumber - 1, _columnNumber);
         }
-        if (_rowNumber <= rowCount - 2)
+        if (_rowNumber + 2 <= rowCount)
         {
             findTotalLand(_layerVector, _rowNumber + 1, _columnNumber);
         }
@@ -80,7 +80,7 @@ void findTotalLand(vector<string> &_layerVector, size_t _rowNumber, size_t _colu
         {
             findTotalLand(_layerVector, _rowNumber, _columnNumber - 1);
         }
-        if (_columnNumber <= columnCount - 2)
+        if (_columnNumber + 2 <= columnCount)
         {
             findTotalLand(_layerVector, _rowNumber, _columnNumber + 1);
         }
