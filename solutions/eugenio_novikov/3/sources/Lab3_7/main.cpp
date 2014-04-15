@@ -92,7 +92,7 @@ private:
     
     string stringFromNumber(const size_t _number)
     {
-        string number = to_string(_number);
+        string number = boost::to_string(_number);
         string result = "";
         
         if (_number < 10)

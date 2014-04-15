@@ -45,7 +45,7 @@ binary_reader::stock_data::~stock_data()
 }
 
 
-void binary_reader::stock_data::write( std::ofstream& out )
+void binary_reader::stock_data::write( std::ofstream& out ) const
 {
 	boost::uint32_t date = 0;
 	int month;
@@ -64,7 +64,7 @@ void binary_reader::stock_data::write( std::ofstream& out )
 }
 
 
-void binary_reader::stock_data::write_raw( std::ofstream& out )
+void binary_reader::stock_data::write_raw( std::ofstream& out ) const
 {	
 	write_binary( out, stock_name_ );
 	write_binary( out, date_time_ );
@@ -77,3 +77,17 @@ void binary_reader::stock_data::write_raw( std::ofstream& out )
 	write_binary( out, f3_ );
 	write_binary( out, f4_ );	
 }
+
+
+char const * binary_reader::stock_data::stock_name() const
+{
+    return stock_name_;
+}
+
+
+
+
+
+
+
+
